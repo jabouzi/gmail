@@ -1,14 +1,17 @@
 #ifndef GMAIL_H
 #define GMAIL_H
 
-#include <QObject>
-#include <QTimer> 
-#include <QDateTime>
-#include <QCoreApplication>
 #include <QHttp>
 #include <QtNetwork>
 #include <QXmlStreamReader>
 #include <QtSql>
+
+struct emailStruct {
+    QString title;
+    QString summary;
+    QString name;
+    QString email;
+};
 
 class Gmail : public QObject
 {  
@@ -16,20 +19,28 @@ class Gmail : public QObject
     public:
         Gmail(QObject* = 0); 
         void connection();   
-        void getEmails();             
+        void getEmails();   
+                 
     
     private:    
-        int nbEmails;    
+        int emailsCount;    
+        int currentCount;
+        int connectionId;
+        bool newEmails;
         QXmlStreamReader xml;  
         QHttp http;     
         QString currentTag;
-        QString linkString;
-        QString titleString;  
+        QString emailId;
+        QStringList emailsIds;
+        emailStruct emailDetails;
+        QList< emailStruct > emailsList;
         
     private slots:        
-        //void getEmails(const QHttpResponseHeader &); 
+        void readData(const QHttpResponseHeader &);
+        void showEmails(); 
         
-    signals:       
+    signals:   
+        void finished();
     
 };
 

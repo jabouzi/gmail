@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'gmail.h'
 **
-** Created: Tue Jun 29 22:14:48 2010
+** Created: Thu Jul 1 15:30:11 2010
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.2)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,18 +23,26 @@ static const uint qt_meta_data_Gmail[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+       7,    6,    6,    6, 0x05,
+
+ // slots: signature, parameters, type, tag, flags
+      18,    6,    6,    6, 0x08,
+      48,    6,    6,    6, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_Gmail[] = {
-    "Gmail\0"
+    "Gmail\0\0finished()\0readData(QHttpResponseHeader)\0"
+    "showEmails()\0"
 };
 
 const QMetaObject Gmail::staticMetaObject = {
@@ -64,6 +72,21 @@ int Gmail::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QObject::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: finished(); break;
+        case 1: readData((*reinterpret_cast< const QHttpResponseHeader(*)>(_a[1]))); break;
+        case 2: showEmails(); break;
+        default: ;
+        }
+        _id -= 3;
+    }
     return _id;
+}
+
+// SIGNAL 0
+void Gmail::finished()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE
